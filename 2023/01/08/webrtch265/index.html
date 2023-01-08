@@ -20,29 +20,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.13.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="We respect and protect the personal privacy of all users of the service. In order to provide you with more accurate and personalized services, this app will use and disclose your personal information">
+    <meta name="description" content="谷歌的webrtc，默认不支持h265，好在网上有开源的实现，但是想要传输层支持h265需要重新编译生成libjingle_peerconnection_so.so。本篇主要记录一下编译过程。项目github地址自己通过虚拟机安装Ubuntu18.04并翻墙，无论如何都无法编译成功，无奈，购买了1个月香港云主机，编译成功！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Privacy Policy">
-<meta property="og:url" content="http://example.com/2022/11/10/privacypolicy/index.html">
+<meta property="og:title" content="实现Android webrtc支持h265">
+<meta property="og:url" content="http://example.com/2023/01/08/webrtch265/index.html">
 <meta property="og:site_name" content="蝈蝈">
-<meta property="og:description" content="We respect and protect the personal privacy of all users of the service. In order to provide you with more accurate and personalized services, this app will use and disclose your personal information">
+<meta property="og:description" content="谷歌的webrtc，默认不支持h265，好在网上有开源的实现，但是想要传输层支持h265需要重新编译生成libjingle_peerconnection_so.so。本篇主要记录一下编译过程。项目github地址自己通过虚拟机安装Ubuntu18.04并翻墙，无论如何都无法编译成功，无奈，购买了1个月香港云主机，编译成功！">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-11-10T08:25:09.674Z">
-<meta property="article:modified_time" content="2022-11-20T15:40:09.879Z">
+<meta property="article:published_time" content="2023-01-08T02:24:53.399Z">
+<meta property="article:modified_time" content="2023-01-08T02:26:48.403Z">
 <meta property="article:author" content="Guoguo">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2022/11/10/privacypolicy/">
+<link rel="canonical" href="http://example.com/2023/01/08/webrtch265/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/11/10/privacypolicy/","path":"2022/11/10/privacypolicy/","title":"Privacy Policy"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/01/08/webrtch265/","path":"2023/01/08/webrtch265/","title":"实现Android webrtc支持h265"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5543110969323200"
      crossorigin="anonymous"></script>
-<title>Privacy Policy | 蝈蝈</title>
+<title>实现Android webrtc支持h265 | 蝈蝈</title>
   
 
 
@@ -105,7 +105,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -118,6 +118,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%B8%8B%E8%BD%BD%E4%BB%A3%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">1.下载代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%B8%8B%E8%BD%BDdepot-tools"><span class="nav-number">2.</span> <span class="nav-text">2.下载depot_tools</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%88%9B%E5%BB%BA-gclient"><span class="nav-number">3.</span> <span class="nav-text">3.创建.gclient</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-gclient-sync"><span class="nav-number">4.</span> <span class="nav-text">4.gclient sync</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E7%BC%96%E8%AF%91"><span class="nav-number">5.</span> <span class="nav-text">5.编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-out"><span class="nav-number">6.</span> <span class="nav-text">6.out</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -170,7 +171,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/10/privacypolicy/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/01/08/webrtch265/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -183,12 +184,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Privacy Policy | 蝈蝈">
+      <meta itemprop="name" content="实现Android webrtc支持h265 | 蝈蝈">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Privacy Policy
+          实现Android webrtc支持h265
         </h1>
 
         <div class="post-meta-container">
@@ -198,15 +199,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2022-11-10 16:25:09" itemprop="dateCreated datePublished" datetime="2022-11-10T16:25:09+08:00">2022-11-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-11-20 23:40:09" itemprop="dateModified" datetime="2022-11-20T23:40:09+08:00">2022-11-20</time>
+      <time title="Created: 2023-01-08 10:24:53 / Modified: 10:26:48" itemprop="dateCreated datePublished" datetime="2023-01-08T10:24:53+08:00">2023-01-08</time>
     </span>
 
   
@@ -219,42 +214,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>We respect and protect the personal privacy of all users of the service. In order to provide you with more accurate and personalized services, this app will use and disclose your personal information in accordance with the provisions of this privacy policy. However, this application will treat such information with a high degree of diligence and prudence. Unless otherwise specified in this privacy policy, this app will not disclose such information to the public or provide it to a third party without your prior permission. This application will update this privacy policy from time to time. When you agree to this application service use agreement, you will be deemed to have agreed to all the contents of this privacy policy. This privacy policy is an integral part of this application service use agreement.</p>
+        <p>谷歌的webrtc，默认不支持h265，好在网上有开源的实现，但是想要传输层支持h265需要重新编译生成libjingle_peerconnection_so.so。本篇主要记录一下编译过程。<a target="_blank" rel="noopener" href="https://github.com/open-webrtc-toolkit/owt-client-native">项目github地址</a><br>自己通过虚拟机安装Ubuntu18.04并翻墙，无论如何都无法编译成功，无奈，购买了1个月香港云主机，编译成功！</p>
 <span id="more"></span>
+<p>假设当前路径为<code>/home/zhanggf</code></p>
+<h3 id="1-下载代码"><a href="#1-下载代码" class="headerlink" title="1.下载代码"></a>1.下载代码</h3><p><code>git clone https://github.com/open-webrtc-toolkit/owt-client-native.git</code><br>下载完成后，将目录重命名为src<br><code>mv owt-client-native src</code></p>
+<h3 id="2-下载depot-tools"><a href="#2-下载depot-tools" class="headerlink" title="2.下载depot_tools"></a>2.下载depot_tools</h3><p><code>git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git</code><br>下载完成后，设置PATH<br><code>export PATH=$PATH:/home/zhanggf/depot_tools</code></p>
+<h3 id="3-创建-gclient"><a href="#3-创建-gclient" class="headerlink" title="3.创建.gclient"></a>3.创建.gclient</h3><p><code>vi .gclient</code><br>将以下内容复制到文件中并保存：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">solutions = [</span><br><span class="line">  &#123;</span><br><span class="line">     &quot;managed&quot;: False,</span><br><span class="line">     &quot;name&quot;: &quot;src&quot;,</span><br><span class="line">     &quot;url&quot;: &quot;https://github.com/open-webrtc-toolkit/owt-client-native.git&quot;,</span><br><span class="line">     &quot;custom_deps&quot;: &#123;&#125;,</span><br><span class="line">     &quot;deps_file&quot;: &quot;DEPS&quot;,</span><br><span class="line">     &quot;safesync_url&quot;: &quot;&quot;,</span><br><span class="line">  &#125;,</span><br><span class="line">]</span><br><span class="line">target_os = [&quot;android&quot;]</span><br></pre></td></tr></table></figure>
 
-<p>1.Scope of application</p>
-<p>(a) The personal registration information you provided according to the requirements of this application when you registered this application account;</p>
-<p>(b) When you use the application network service or visit the website of the application platform, the application automatically receives and records the information on your browser and computer, including but not limited to your IP address, browser type, language used, access date and time, software and hardware feature information, and the website records you need;</p>
-<p>(c) This application obtains user personal data from business partners through legal channels.</p>
-<p>You understand and agree that the following information is not applicable to this privacy policy:</p>
-<p>(a) The keyword information you enter when using the search service provided by this application platform;</p>
-<p>(b) Relevant information and data collected by the app that you publish in the app, including but not limited to participation activities, transaction information and evaluation details;</p>
-<p>(c) Violation of legal provisions or this application rule and the measures taken by this application against you.</p>
-<p>2.Use of information</p>
-<p>(a) This app will not provide, sell, rent, share or trade your personal information to any unrelated third party.</p>
-<p>(b) This app also does not allow any third party to collect, edit, sell or distribute your personal information for free by any means. If any user of the application platform engages in the above activities, once found, the application has the right to immediately terminate the service agreement with the user.</p>
-<p>(c) FaceID is only used for quick unlocking the app. This app will not collect your FaceID data.</p>
-<p>3.Information disclosure</p>
-<p>Under the following circumstances, this app will disclose all or part of your personal information according to your personal will or legal provisions:</p>
-<p>(a) Disclosure to a third party with your prior consent;</p>
-<p>(b) To provide the products and services you require, you must share your personal information with a third party;</p>
-<p>(c) Disclose to a third party or administrative or judicial authorities according to relevant provisions of laws or requirements of administrative or judicial authorities;</p>
-<p>(d) If you violate the relevant laws and regulations of China or this application service agreement or relevant rules, you need to disclose to a third party;</p>
-<p>(e) If you are a qualified intellectual property complainant and have filed a complaint, you should disclose it to the respondent at the request of the respondent so that both parties can handle possible rights disputes;</p>
-<p>(f) In a transaction created on the application platform, if any party to the transaction performs or partially performs the transaction obligations and requests information disclosure, the application has the right to decide to provide the user with the necessary information such as the contact information of the counterparty to facilitate the completion of the transaction or the settlement of disputes.</p>
-<p>(g) Other disclosures that the app deems appropriate according to laws, regulations or website policies.</p>
-<p>4.Information storage and exchange</p>
-<p>The information and materials about you collected by the app will be stored on the servers of the app and&#x2F;or its affiliated companies. These information and materials may be transferred to your country, region or outside the country where the information and materials collected by the app are located, and accessed, stored and displayed outside the country.</p>
-<p>5.Cookie usage</p>
-<p>(a) If you do not refuse to accept cookies, the app will set or access cookies on your computer so that you can log in or use the services or functions of the app platform that depend on cookies. Cookies can provide you with more considerate personalized services, including promotion services.</p>
-<p>(b) You have the right to accept or reject cookies. You can refuse to accept cookies by modifying your browser settings. However, if you choose to refuse to accept cookies, you may not be able to log in or use the application’s network services or functions that depend on cookies.</p>
-<p>(c) This policy will apply to the relevant information obtained through the cookies set up in this application.</p>
-<p>6.Information Security</p>
-<p>(a) This application account has security protection function. Please keep your user name and password information properly. This application will ensure that your information will not be lost, abused or altered by encrypting user passwords and other security measures. Despite the aforementioned security measures, please note that there are no “perfect security measures” on the information network.</p>
-<p>(b) When using this application network service to conduct online transactions, you will inevitably have to</p>
-<p>7.Changes to this Privacy Policy</p>
-<p>(a) If we decide to change the privacy policy, we will publish these changes in this policy, on our company’s website and where we think appropriate, so that you can understand how we collect and use your personal information, who can access it, and under what circumstances we will disclose it.</p>
-<p>(b) The company reserves the right to modify this policy at any time, so please check it frequently. In case of any major change to this policy, the Company will notify it through website notification. Party A discloses its personal information, such as contact information or postal address. Please protect your personal information properly and provide it to others only when necessary. If you find that your personal information has been leaked, especially the user name and password of the application, please contact the customer service of the application immediately so that the application can take corresponding measures.</p>
+<h3 id="4-gclient-sync"><a href="#4-gclient-sync" class="headerlink" title="4.gclient sync"></a>4.gclient sync</h3><p>进入src目录<code>cd src</code>,执行<code>gclient sync</code>，后面就是漫长的等待，视网速情况，需要1-n个小时吧。</p>
+<h3 id="5-编译"><a href="#5-编译" class="headerlink" title="5.编译"></a>5.编译</h3><p>进入&#x2F;src&#x2F;scripts目录,执行<code>python build_android.py</code>开始编译。全部编译完成大概1小时左右吧。</p>
+<h3 id="6-out"><a href="#6-out" class="headerlink" title="6.out"></a>6.out</h3><p>最终生成的目标文件在src&#x2F;out路径下，包括libwebrtc.jar和对应版本的libjingle_peerconnection_so.so。替换当前项目中的相关文件，恭喜你，你的webrtc项目已经支持h265硬编码了。</p>
+<p>最后，编译成果放在了github，有需要的自取。<a target="_blank" rel="noopener" href="https://github.com/ilei131/android_webrtc_h265">github链接</a></p>
 
     </div>
 
@@ -285,7 +256,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="http://example.com/2022/11/10/privacypolicy/" title="Privacy Policy">http://example.com/2022/11/10/privacypolicy/</a>
+      <a href="http://example.com/2023/01/08/webrtch265/" title="实现Android webrtc支持h265">http://example.com/2023/01/08/webrtch265/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -298,14 +269,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/11/10/yinsizhengce/" rel="prev" title="隐私政策">
-                  <i class="fa fa-chevron-left"></i> 隐私政策
+                <a href="/2022/11/10/privacypolicy/" rel="prev" title="Privacy Policy">
+                  <i class="fa fa-chevron-left"></i> Privacy Policy
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/01/08/webrtch265/" rel="next" title="实现Android webrtc支持h265">
-                  实现Android webrtc支持h265 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
