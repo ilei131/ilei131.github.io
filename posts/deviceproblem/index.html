@@ -57,7 +57,7 @@
   />
 
   
-  <title>Openwit</title>
+  <title>Mac设备问题及解决方法记录 - Openwit</title>
 
   
   <meta name="theme-color" />
@@ -66,12 +66,19 @@
   
   
   
-  
-  <meta
-    name="description"
-    content="A personal blog"
-  />
-  <meta name="author" content="Ilei" />
+  <meta name="description" content="MacOS Wifi连接后显示叹号
+现象：
+连接多个 wifi 后，系统右上角 wifi 标识均显示叹号。
+解决方法：
+进入 /Library/Preferences/SystemConfiguration 目录，将所有文件删除，重启系统，重新连接 wifi。
+iOS设备连接Mac电脑后频繁弹窗（是否信任）
+现象：
+将 iPad 或者 iPhone 连接Mac电脑后，设备频繁弹窗提示是否信任该电脑，无法点击信任或者不信任。
+解决方法：
+打开终端，输入命令：
+sudo killall -STOP -c usbd
+然后输入电脑开机密码，再次连接设备与电脑，设备再次弹窗后点击信任即可。" />
+  <meta name="author" content="openwit" />
   
 
   
@@ -105,6 +112,12 @@
 
   
   
+  <script
+    defer
+    src="https://example.org/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
 
   
   
@@ -129,33 +142,36 @@
   
   
   
-  <meta itemprop="name" content="Openwit">
-  <meta itemprop="datePublished" content="2024-12-25T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2024-12-25T00:00:00+00:00">
+  <meta itemprop="name" content="Mac设备问题及解决方法记录">
+  <meta itemprop="description" content="Mac设备问题及解决方法记录">
+  <meta itemprop="datePublished" content="2022-11-19T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-11-19T00:00:00+00:00">
+  <meta itemprop="wordCount" content="28">
+  <meta itemprop="keywords" content="Mac,IPhone">
   
-  <meta property="og:url" content="https://example.org/">
+  <meta property="og:url" content="https://example.org/posts/deviceproblem/">
   <meta property="og:site_name" content="Openwit">
-  <meta property="og:title" content="Openwit">
+  <meta property="og:title" content="Mac设备问题及解决方法记录">
+  <meta property="og:description" content="Mac设备问题及解决方法记录">
   <meta property="og:locale" content="cn">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-11-19T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-11-19T00:00:00+00:00">
+    <meta property="article:tag" content="Mac">
+    <meta property="article:tag" content="IPhone">
 
   
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Openwit">
+  <meta name="twitter:title" content="Mac设备问题及解决方法记录">
+  <meta name="twitter:description" content="Mac设备问题及解决方法记录">
 
   
   
-  <link
-    rel="alternate"
-    type="application/rss&#43;xml"
-    href="https://example.org/index.xml"
-    title="Openwit"
-  />
-  
 
   
-  <link rel="canonical" href="https://example.org/" />
+  <link rel="canonical" href="https://example.org/posts/deviceproblem/" />
   
   
 </head>
@@ -256,97 +272,90 @@
     >
       
 
+<article>
+  <header class="mb-14">
+    <h1 class="!my-0 pb-2.5">Mac设备问题及解决方法记录</h1>
 
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-<div class="-mt-2 mb-12 flex items-center">
-  
-  <div
-    class="ltr:-ml-1 rtl:-mr-1 ltr:mr-5 rtl:ml-5 h-24 w-24 shrink-0 rounded-full border-[0.5px] border-black/10 bg-white/50 p-3 dark:!bg-white/90"
-  >
-    <img
-      class="my-0 h-full w-full rounded-full !bg-black/5 hover:animate-spin dark:!bg-black/80"
-      src="https://www.gravatar.com/avatar/c5aa8adc71047417f908e1beef35af64?s=160&amp;d=identicon"
-      alt="Ilei"
-    />
-  </div>
-  
-  
-  <div>
-    <div class="mb-1 mt-3 text-2xl font-medium text-black dark:text-white">
-      Ilei
+    
+    <div class="text-xs antialiased opacity-60">
+      
+      <time>Nov 19, 2022</time>
+      
+      
+      
+      
+      <span class="mx-1">&middot;</span>
+      <span>openwit</span>
+      
     </div>
-    <div class="break-words">
-      人生很短，每一秒都是岁月。
-    </div>
-  </div>
-  
-</div>
+    
+  </header>
 
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
-  
-  <h2 class="!my-0">GStreamer插件编写，引入TensorFlow模型</h2>
-  <time class="text-xs antialiased opacity-60"
-    >Dec 25, 2024</time
-  >
-  <a class="absolute inset-0 text-[0]" href="https://example.org/posts/gstplugin/">GStreamer插件编写，引入TensorFlow模型</a>
+  <section><h2 id="macos-wifi连接后显示叹号">MacOS Wifi连接后显示叹号</h2>
+<h3 id="现象">现象：</h3>
+<p>连接多个 wifi 后，系统右上角 wifi 标识均显示叹号。</p>
+<h3 id="解决方法">解决方法：</h3>
+<p>进入 /Library/Preferences/SystemConfiguration 目录，将所有文件删除，重启系统，重新连接 wifi。</p>
+<h2 id="ios设备连接mac电脑后频繁弹窗是否信任">iOS设备连接Mac电脑后频繁弹窗（是否信任）</h2>
+<h3 id="现象-1">现象：</h3>
+<p>将 iPad 或者 iPhone 连接Mac电脑后，设备频繁弹窗提示是否信任该电脑，无法点击信任或者不信任。</p>
+<h3 id="解决方法-1">解决方法：</h3>
+<p>打开终端，输入命令：</p>
+<pre tabindex="0"><code>sudo killall -STOP -c usbd
+</code></pre><p>然后输入电脑开机密码，再次连接设备与电脑，设备再次弹窗后点击信任即可。</p>
 </section>
 
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
   
-  <h2 class="!my-0">缠中说禅笔记</h2>
-  <time class="text-xs antialiased opacity-60"
-    >Feb 19, 2023</time
+  
+  <footer class="mt-12 flex flex-wrap">
+     
+    <a
+      class="mb-1.5 ltr:mr-1.5 rtl:ml-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] dark:bg-white/[8%] dark:hover:bg-white/[12%]"
+      href="https://example.org/tags/mac"
+      >Mac</a
+    >
+     
+    <a
+      class="mb-1.5 ltr:mr-1.5 rtl:ml-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] dark:bg-white/[8%] dark:hover:bg-white/[12%]"
+      href="https://example.org/tags/iphone"
+      >iPhone</a
+    >
+    
+  </footer>
+  
+
+  
+  
+  
+  
+  <nav
+    class="mt-24 flex overflow-hidden rounded-xl bg-black/[3%] text-lg !leading-[1.2] *:flex *:w-1/2 *:items-center *:p-5 *:font-medium *:no-underline dark:bg-white/[8%] [&>*:hover]:bg-black/[2%] dark:[&>*:hover]:bg-white/[3%]"
   >
-  <a class="absolute inset-0 text-[0]" href="https://example.org/posts/czsc/">缠中说禅笔记</a>
-</section>
-
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
-  
-  <h2 class="!my-0">银河麒麟制作deb安装包</h2>
-  <time class="text-xs antialiased opacity-60"
-    >Feb 19, 2023</time
-  >
-  <a class="absolute inset-0 text-[0]" href="https://example.org/posts/kylindeb/">银河麒麟制作deb安装包</a>
-</section>
-
-
-
-
-<nav class="mt-14 flex">
+    
+    <a class="ltr:pr-3 rtl:pl-3" href="https://example.org/posts/webrtc/"
+      ><span class="ltr:mr-1.5 rtl:ml-1.5">←</span><span>实现Android WebRTC支持H265</span></a
+    >
+    
+    
+    <a class="ltr:ml-auto rtl:mr-auto justify-end pl-3" href="https://example.org/posts/markdown/"
+      ><span>Markdown 新手指南</span><span class="ltr:ml-1.5 rtl:mr-1.5">→</span></a
+    >
+    
+  </nav>
   
   
-  <a class="btn ml-auto" href="/page/2/"
-    >Next Page →</a
-  >
-  
-</nav>
 
+  
+  
+
+  
+  
+
+  
+
+
+  
+</article>
 
 
     </main>
