@@ -44,7 +44,7 @@
   lang="cn"
   dir="ltr"
 >
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta
@@ -73,14 +73,14 @@
   
   
   
-  <link rel="preload stylesheet" as="style" href="https://openwit.net/main.min.css" />
+  <link rel="preload stylesheet" as="style" href="http://localhost:1313/main.min.css" />
 
   
   
   
   
   
-  <link rel="preload" as="image" href="https://openwit.net/theme.png" />
+  <link rel="preload" as="image" href="http://localhost:1313/theme.png" />
 
   
   
@@ -92,7 +92,7 @@
 
   
   
-  <link rel="preload" as="image" href="https://openwit.net/github.svg" />
+  <link rel="preload" as="image" href="http://localhost:1313/github.svg" />
   
   
 
@@ -100,7 +100,7 @@
   
   <script
     defer
-    src="https://openwit.net/highlight.min.js"
+    src="http://localhost:1313/highlight.min.js"
     onload="hljs.initHighlightingOnLoad();"
   ></script>
   
@@ -112,11 +112,11 @@
   
   <link
     rel="icon"
-    href="https://openwit.net/favicon.ico"
+    href="http://localhost:1313/favicon.ico"
   />
   <link
     rel="apple-touch-icon"
-    href="https://openwit.net/apple-touch-icon.png"
+    href="http://localhost:1313/apple-touch-icon.png"
   />
 
   
@@ -125,47 +125,12 @@
   
   
   
-  
-  
-  
-  <meta itemprop="name" content="GStreamer插件编写，引入TensorFlow模型">
-  <meta itemprop="description" content="gstplugin">
-  <meta itemprop="datePublished" content="2024-12-25T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2024-12-25T00:00:00+00:00">
-  <meta itemprop="wordCount" content="46">
-  <meta itemprop="keywords" content="GStreamer,TensorFlow">
-  
-  <meta property="og:url" content="https://openwit.net/posts/gstplugin/">
-  <meta property="og:site_name" content="Openwit">
-  <meta property="og:title" content="GStreamer插件编写，引入TensorFlow模型">
-  <meta property="og:description" content="gstplugin">
-  <meta property="og:locale" content="cn">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2024-12-25T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-12-25T00:00:00+00:00">
-    <meta property="article:tag" content="GStreamer">
-    <meta property="article:tag" content="TensorFlow">
-
-  
-  
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="GStreamer插件编写，引入TensorFlow模型">
-  <meta name="twitter:description" content="gstplugin">
-
-  
-  
-
-  
-  <link rel="canonical" href="https://openwit.net/posts/gstplugin/" />
-  
-  
 </head>
 
   <body class="text-black duration-200 ease-out dark:text-white">
     <header class="mx-auto flex h-[4.5rem] max-w-[--w] px-8 lg:justify-center">
   <div class="relative z-50 ltr:mr-auto rtl:ml-auto flex items-center">
-    <a class="-translate-y-[1px] text-2xl font-medium" href="https://openwit.net/"
+    <a class="-translate-y-[1px] text-2xl font-medium" href="http://localhost:1313/"
       >Openwit</a
     >
     <div
@@ -307,13 +272,13 @@ sudo apt install -y libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev build-e
      
     <a
       class="mb-1.5 ltr:mr-1.5 rtl:ml-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] dark:bg-white/[8%] dark:hover:bg-white/[12%]"
-      href="https://openwit.net/tags/gstreamer"
+      href="http://localhost:1313/tags/gstreamer"
       >GStreamer</a
     >
      
     <a
       class="mb-1.5 ltr:mr-1.5 rtl:ml-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] dark:bg-white/[8%] dark:hover:bg-white/[12%]"
-      href="https://openwit.net/tags/tensorflow"
+      href="http://localhost:1313/tags/tensorflow"
       >TensorFlow</a
     >
     
@@ -329,7 +294,7 @@ sudo apt install -y libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev build-e
   >
     
     
-    <a class="ltr:ml-auto rtl:mr-auto justify-end pl-3" href="https://openwit.net/posts/czsc/"
+    <a class="ltr:ml-auto rtl:mr-auto justify-end pl-3" href="http://localhost:1313/posts/czsc/"
       ><span>缠中说禅笔记</span><span class="ltr:ml-1.5 rtl:mr-1.5">→</span></a
     >
     
@@ -369,7 +334,7 @@ sudo apt install -y libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev build-e
   <div class="mr-auto">
   
     &copy; 2024
-    <a class="link" href="https://openwit.net/">Openwit</a>
+    <a class="link" href="http://localhost:1313/">Openwit</a>
   
   </div>
   <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"

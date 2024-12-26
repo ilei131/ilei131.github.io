@@ -2,72 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://openwit.net/about/</loc>
+    <loc>http://localhost:1313/about/</loc>
     <lastmod>2024-12-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://openwit.net/tags/gstreamer/</loc>
+    <loc>http://localhost:1313/tags/gstreamer/</loc>
     <lastmod>2024-12-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://openwit.net/posts/gstplugin/</loc>
+    <loc>http://localhost:1313/posts/gstplugin/</loc>
     <lastmod>2024-12-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://openwit.net/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2024-12-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://openwit.net/posts/</loc>
+    <loc>http://localhost:1313/posts/</loc>
     <lastmod>2024-12-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://openwit.net/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2024-12-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://openwit.net/tags/tensorflow/</loc>
+    <loc>http://localhost:1313/tags/tensorflow/</loc>
     <lastmod>2024-12-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://openwit.net/tags/%E7%BC%A0%E4%B8%AD%E8%AF%B4%E7%A6%85/</loc>
+    <loc>http://localhost:1313/tags/%E7%BC%A0%E4%B8%AD%E8%AF%B4%E7%A6%85/</loc>
     <lastmod>2023-02-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://openwit.net/posts/czsc/</loc>
+    <loc>http://localhost:1313/posts/czsc/</loc>
     <lastmod>2023-02-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://openwit.net/tags/%E9%93%B6%E6%B2%B3%E9%BA%92%E9%BA%9F/</loc>
+    <loc>http://localhost:1313/tags/%E9%93%B6%E6%B2%B3%E9%BA%92%E9%BA%9F/</loc>
     <lastmod>2023-02-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://openwit.net/posts/kylindeb/</loc>
+    <loc>http://localhost:1313/posts/kylindeb/</loc>
     <lastmod>2023-02-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://openwit.net/tags/android/</loc>
+    <loc>http://localhost:1313/tags/android/</loc>
     <lastmod>2023-01-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://openwit.net/tags/h265/</loc>
+    <loc>http://localhost:1313/tags/h265/</loc>
     <lastmod>2023-01-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://openwit.net/tags/webrtc/</loc>
+    <loc>http://localhost:1313/tags/webrtc/</loc>
     <lastmod>2023-01-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://openwit.net/posts/webrtc/</loc>
+    <loc>http://localhost:1313/posts/webrtc/</loc>
     <lastmod>2023-01-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://openwit.net/tags/iphone/</loc>
+    <loc>http://localhost:1313/tags/iphone/</loc>
     <lastmod>2022-11-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://openwit.net/tags/mac/</loc>
+    <loc>http://localhost:1313/tags/mac/</loc>
     <lastmod>2022-11-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://openwit.net/posts/deviceproblem/</loc>
+    <loc>http://localhost:1313/posts/deviceproblem/</loc>
     <lastmod>2022-11-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://openwit.net/tags/markdown/</loc>
+    <loc>http://localhost:1313/tags/markdown/</loc>
     <lastmod>2022-11-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://openwit.net/posts/markdown/</loc>
+    <loc>http://localhost:1313/posts/markdown/</loc>
     <lastmod>2022-11-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://openwit.net/posts/privacypolicy/</loc>
+    <loc>http://localhost:1313/posts/privacypolicy/</loc>
     <lastmod>2022-11-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://openwit.net/posts/yszc/</loc>
+    <loc>http://localhost:1313/posts/yszc/</loc>
     <lastmod>2022-11-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://openwit.net/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
   </url>
 </urlset>
