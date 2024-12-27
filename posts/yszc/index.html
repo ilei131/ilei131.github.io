@@ -365,6 +365,48 @@
 <li>(b) 本公司保留随时修改本政策的权利，因此请经常查看。如对本政策作出重大更改，本公司会通过网站通知的形式告知。方披露自己的个人信息，如联络方式或者邮政地址。请您妥善保护自己的个人信息，仅在必要的情形下向他人提供。如您发现自己的个人信息泄密，尤其是本应用用户名及密码发生泄露，请您立即联络本应用客服，以便本应用采取相应措施。</li>
 </ul>
 </section>
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5543110969323200" crossorigin="anonymous"></script>
+
+<div id="daily-poem" class="daily-poem-container">
+  <div class="poem-content">
+    <div id="poem_sentence" class="poem-text"></div>
+    <div id="poem_info" class="poem-author"></div>
+  </div>
+</div>
+<script type="text/javascript">
+  jinrishici.load(function(result) {
+    var sentence = document.querySelector("#poem_sentence")
+    var info = document.querySelector("#poem_info")
+    sentence.innerHTML = result.data.content
+    info.innerHTML = '——' + result.data.origin.dynasty + '·' + result.data.origin.author + '《' + result.data.origin.title + '》'
+  });
+</script>
+
+<style>
+.daily-poem-container {
+  margin: 2em 0;
+  padding: 1em;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background-color: #f4f4f4;
+}
+.poem-title {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+    color: #333;
+}
+
+.poem-author {
+    color: #666;
+    font-style: italic;
+}
+
+.poem-text {
+    line-height: 1.6;
+    color: #444;
+}
+</style>
 
   
   
@@ -404,17 +446,6 @@
     <footer
   class="mx-auto flex h-[4.5rem] max-w-[--w] items-center px-8 text-xs uppercase tracking-wider opacity-60"
 >
-  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-  <div id="poem_sentence"></div>
-  <div id="poem_info"></div>
-  <script type="text/javascript">
-    jinrishici.load(function(result) {
-      var sentence = document.querySelector("#poem_sentence")
-      var info = document.querySelector("#poem_info")
-      sentence.innerHTML = result.data.content
-      info.innerHTML = result.data.origin.dynasty + '·' + result.data.origin.author + '《' + result.data.origin.title + '》'
-    });
-  </script>
   <div class="mr-auto">
   
     &copy; 2024
@@ -431,7 +462,6 @@
     target="_blank"
     >paper</a
   >
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5543110969323200" crossorigin="anonymous"></script>
 </footer>
 
   </body>

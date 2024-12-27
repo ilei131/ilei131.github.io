@@ -353,6 +353,48 @@ python build_android.py
 <p>最终生成的目标文件在src/out路径下，包括libwebrtc.jar和对应版本的libjingle_peerconnection_so.so。替换当前项目中的相关文件，恭喜，你的WebRTC项目已经支持H265硬编码了。</p>
 <p>最后，编译成果放在了github，有需要的自取。<a href="https://github.com/ilei131/android_webrtc_h265">github链接</a></p>
 </section>
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5543110969323200" crossorigin="anonymous"></script>
+
+<div id="daily-poem" class="daily-poem-container">
+  <div class="poem-content">
+    <div id="poem_sentence" class="poem-text"></div>
+    <div id="poem_info" class="poem-author"></div>
+  </div>
+</div>
+<script type="text/javascript">
+  jinrishici.load(function(result) {
+    var sentence = document.querySelector("#poem_sentence")
+    var info = document.querySelector("#poem_info")
+    sentence.innerHTML = result.data.content
+    info.innerHTML = '——' + result.data.origin.dynasty + '·' + result.data.origin.author + '《' + result.data.origin.title + '》'
+  });
+</script>
+
+<style>
+.daily-poem-container {
+  margin: 2em 0;
+  padding: 1em;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background-color: #f4f4f4;
+}
+.poem-title {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+    color: #333;
+}
+
+.poem-author {
+    color: #666;
+    font-style: italic;
+}
+
+.poem-text {
+    line-height: 1.6;
+    color: #444;
+}
+</style>
 
   
   
@@ -418,17 +460,6 @@ python build_android.py
     <footer
   class="mx-auto flex h-[4.5rem] max-w-[--w] items-center px-8 text-xs uppercase tracking-wider opacity-60"
 >
-  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-  <div id="poem_sentence"></div>
-  <div id="poem_info"></div>
-  <script type="text/javascript">
-    jinrishici.load(function(result) {
-      var sentence = document.querySelector("#poem_sentence")
-      var info = document.querySelector("#poem_info")
-      sentence.innerHTML = result.data.content
-      info.innerHTML = result.data.origin.dynasty + '·' + result.data.origin.author + '《' + result.data.origin.title + '》'
-    });
-  </script>
   <div class="mr-auto">
   
     &copy; 2024
@@ -445,7 +476,6 @@ python build_android.py
     target="_blank"
     >paper</a
   >
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5543110969323200" crossorigin="anonymous"></script>
 </footer>
 
   </body>

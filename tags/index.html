@@ -273,17 +273,6 @@
     <footer
   class="mx-auto flex h-[4.5rem] max-w-[--w] items-center px-8 text-xs uppercase tracking-wider opacity-60"
 >
-  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-  <div id="poem_sentence"></div>
-  <div id="poem_info"></div>
-  <script type="text/javascript">
-    jinrishici.load(function(result) {
-      var sentence = document.querySelector("#poem_sentence")
-      var info = document.querySelector("#poem_info")
-      sentence.innerHTML = result.data.content
-      info.innerHTML = result.data.origin.dynasty + '·' + result.data.origin.author + '《' + result.data.origin.title + '》'
-    });
-  </script>
   <div class="mr-auto">
   
     &copy; 2024
@@ -300,7 +289,6 @@
     target="_blank"
     >paper</a
   >
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5543110969323200" crossorigin="anonymous"></script>
 </footer>
 
   </body>
