@@ -34,6 +34,10 @@
 
 
 
+
+
+
+
 <html
   class="not-ready lg:text-base"
   style="--bg: #faf8f1"
@@ -91,6 +95,8 @@ sudo killall -STOP -c usbd
   
   
   
+  
+  <link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/ilei131/openwitpics/avatar/avatar.jpg" />
   
   
 
@@ -364,57 +370,6 @@ sudo killall -STOP -c usbd
 </style>
 
   
-<div class="comments-container">
-  <div class="comments-header">
-      <h3>Comments</h3>
-  </div>
-  
-  <div class="giscus"></div>
-</div>
-
-<script src="https://giscus.app/client.js"
-        data-repo="ilei131/ilei131.github.io"
-        data-repo-id="MDEwOlJlcG9zaXRvcnk3Nzg4ODE4MA=="
-        data-category="Announcements"
-        data-category-id="DIC_kwDOBKR6tM4Clmt_"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="light"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
-</script>
-
-<style>
-.comments-container {
-  margin-top: 4rem;
-  padding-top: 2rem;
-  border-top: 1px solid #eee;
-}
-
-.comments-header {
-  margin-bottom: 2rem;
-}
-
-.comments-header h3 {
-  font-size: 1.5rem;
-  color: #2c3e50;
-}
-
- 
-@media (prefers-color-scheme: dark) {
-  .comments-container {
-      border-top-color: #333;
-  }
-  
-  .comments-header h3 {
-      color: #eee;
-  }
-}
-</style>
   
   
   <footer class="mt-12 flex flex-wrap">
@@ -477,7 +432,7 @@ sudo killall -STOP -c usbd
     data-reactions-enabled="0"
     data-emit-metadata="0"
     data-input-position="top"
-    data-theme="light"
+    data-theme="preferred_color_scheme"
     data-lang="zh-CN"
     data-loading="lazy"
     crossorigin="anonymous"
