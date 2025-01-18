@@ -639,6 +639,20 @@
             alert('密码错误，请重试。');
         }
     }
+    
+    document.getElementById('password-input').addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        const password = this.value;
+        const correctPassword = '108hailuoai';
+
+        if (password === correctPassword) {
+            document.getElementById('encrypted-content').style.display = 'block';
+            document.getElementById('password-prompt').style.display = 'none';
+        } else {
+            alert('密码错误，请重试。');
+        }
+    }
+});
 </script>
 
     </main>
