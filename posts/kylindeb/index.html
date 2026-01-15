@@ -1,0 +1,78 @@
+<!doctype html><html class="not-ready lg:text-base" style=--bg:#faf8f1 lang=cn dir=ltr><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>银河麒麟制作deb安装包 - Openwit</title><meta name=theme-color><meta name=description content="本篇记录一下银河麒麟制作deb安装包的主要步骤。
+制作安装包的命令很简单，以我近期的项目为例：
+dpkg -b hsclient/ hsclient_1.0.0_arm64.deb
+以上命令会将hsclient文件夹的内容制作成hsclient_1.0.0_arm64.deb安装包。制作时间取决于hsclient文件夹的大小。
+所以，主要工作量在于hsclient文件夹的准备。
+使用tree 命令查看hsclient目录结构如下：
+
+可执行文件及相关依赖存放在HSClient目录，这里为了方便展示，我将里面的内容清空了，deb包安装完成后，可执行文件所在目录即为/opt/hbfec/HSClient。
+control 文件内容如下：
+package: hsclient
+version: 1.0.0
+architecture: arm64
+maintainer: hbfec
+description: hsclient application
+主要指定包名、版本号、系统架构、维护者、描述，根据实际情况填写即可。
+desktop 文件内容如下：
+[Desktop Entry]
+Name=HSClient
+Name[zh_CN]=会商客户端
+Comment=HSClient application
+Exec=/opt/hbfec/HSClient/HSClient
+Icon=/usr/share/icons/hsclient.png
+Terminal=false
+Type=Application
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;
+StartupNotify=true
+主要指定可执行文件相关配置：名称、可执行文件路径、图标、应用类型等。
+程序图标这块没有固定的实现。简单实现，就放在/usr/share/icons目录下即可，推荐48*48大小，desktop中需要写绝对路径Icon=/usr/share/icons/hsclient.png。完整实现的话，icons目录下需要创建hicolor目录、kylin-icon-theme目录以及 kylin-icon-theme-one目录，目录下都需要放置对应大小的图片，desktop中可以直接写文件名Icon=hsclient，可参考已安装的其他应用程序。
+以上内容都准备好以后，就可以通过文章开始处提到的命令制作安装包了。
+需要指出的是，在DEBIAN目录中至少要有control文件，还可以有preinst(preinstallation)、postinst(postinstallation)、prerm(preremove)、postrm(postremove)、copyright(版权）、changlog(修订记录）和conffiles等。
+具体作用如下：
+preinst 文件：解包前运行的脚本。
+postinst 文件：解包完成并将目录文件拷贝到系统后，所需要执行的配置工作。
+prerm 文件：软件卸载前需要执行的脚本。
+postrm 文件：软件卸载后需要执行的脚本。
+control 文件：描述软件包的名称（Package），版本（Version），描述（Description）等，是deb包必须具备的描述性文件，以便于软件的安装管理和索引。
+银河麒麟下制作deb安装包涉及的主要内容就是这些，希望可以帮到有需要的人。"><meta name=author content="openwit"><link rel="preload stylesheet" as=style href=https://openwit.net/main.min.css><link rel=preload as=image href=https://openwit.net/theme.png><link rel=preload as=image href=https://cdn.jsdelivr.net/gh/ilei131/openwitpics/avatar/avatar.jpg><link rel=preload as=image href=https://openwit.net/github.svg><script defer src=https://openwit.net/highlight.min.js onload=hljs.initHighlightingOnLoad()></script><link rel=icon href=https://openwit.net/favicon.ico><link rel=apple-touch-icon href=https://openwit.net/apple-touch-icon.png><meta name=generator content="Hugo 0.154.5"><meta itemprop=name content="银河麒麟制作deb安装包"><meta itemprop=description content="银河麒麟制作deb安装包"><meta itemprop=datePublished content="2023-02-19T00:00:00+00:00"><meta itemprop=dateModified content="2023-02-19T00:00:00+00:00"><meta itemprop=wordCount content="57"><meta itemprop=keywords content="银河麒麟"><meta property="og:url" content="https://openwit.net/posts/kylindeb/"><meta property="og:site_name" content="Openwit"><meta property="og:title" content="银河麒麟制作deb安装包"><meta property="og:description" content="银河麒麟制作deb安装包"><meta property="og:locale" content="cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-02-19T00:00:00+00:00"><meta property="article:modified_time" content="2023-02-19T00:00:00+00:00"><meta property="article:tag" content="银河麒麟"><meta name=twitter:card content="summary"><meta name=twitter:title content="银河麒麟制作deb安装包"><meta name=twitter:description content="银河麒麟制作deb安装包"><link rel=canonical href=https://openwit.net/posts/kylindeb/></head><body class="text-black duration-200 ease-out dark:text-white"><header class="mx-auto flex h-[4.5rem] max-w-[--w] px-8 lg:justify-center"><div class="relative z-50 ltr:mr-auto rtl:ml-auto flex items-center"><a class="-translate-y-[1px] text-2xl font-medium" href=https://openwit.net/>Openwit</a><div class="btn-dark text-[0] ltr:ml-4 rtl:mr-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]" role=button aria-label=Dark></div></div><div class="btn-menu relative z-50 ltr:-mr-8 rtl:-ml-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden" role=button aria-label=Menu></div><script>const htmlClass=document.documentElement.classList;setTimeout(()=>{htmlClass.remove("not-ready")},10);const btnMenu=document.querySelector(".btn-menu");btnMenu.addEventListener("click",()=>{htmlClass.toggle("open")});const metaTheme=document.querySelector('meta[name="theme-color"]'),lightBg="#faf8f1".replace(/"/g,""),setDark=e=>{metaTheme.setAttribute("content",e?"#000":lightBg),htmlClass[e?"add":"remove"]("dark"),localStorage.setItem("dark",e)},darkScheme=window.matchMedia("(prefers-color-scheme: dark)");if(htmlClass.contains("dark"))setDark(!0);else{const e=localStorage.getItem("dark");setDark(e?e==="true":darkScheme.matches)}darkScheme.addEventListener("change",e=>{setDark(e.matches)});const btnDark=document.querySelector(".btn-dark");btnDark.addEventListener("click",()=>{setDark(localStorage.getItem("dark")!=="true")})</script><script>var _hmt=_hmt||[];(function(){var e,t=document.createElement("script");t.src="https://hm.baidu.com/hm.js?1f830d4f09e1960ddc5db4a3b70ea0d4",e=document.getElementsByTagName("script")[0],e.parentNode.insertBefore(t,e)})()</script><div class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"><nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-10 rtl:space-x-reverse"><a class="block text-center text-xl leading-[5rem] lg:text-base lg:font-normal" href=/about/>About</a>
+<a class="block text-center text-xl leading-[5rem] lg:text-base lg:font-normal" href=/imageeditor/>ImageEditor</a>
+<a class="block text-center text-xl leading-[5rem] lg:text-base lg:font-normal" href=/passworddisk/>PasswordDisk</a>
+<a class="block text-center text-xl leading-[5rem] lg:text-base lg:font-normal" href=/archives/>Archives</a></nav><nav class="mt-12 flex justify-center space-x-10 rtl:space-x-reverse dark:invert ltr:lg:ml-14 rtl:lg:mr-14 lg:mt-0 lg:items-center"><a class="h-7 w-7 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./github.svg) href=https://github.com/ilei131 target=_blank rel=me>github</a></nav></div></header><main class="prose prose-neutral relative mx-auto min-h-[calc(100vh-9rem)] max-w-[--w] px-8 pb-16 pt-14 dark:prose-invert"><article><header class=mb-14><h1 class="!my-0 pb-2.5">银河麒麟制作deb安装包</h1><div class="text-xs antialiased opacity-60"><time>Feb 19, 2023</time>
+<span class=mx-1>&#183;</span>
+<span>openwit</span></div></header><section><p>本篇记录一下银河麒麟制作deb安装包的主要步骤。
+制作安装包的命令很简单，以我近期的项目为例：</p><pre tabindex=0><code>dpkg -b hsclient/ hsclient_1.0.0_arm64.deb
+</code></pre><p>以上命令会将hsclient文件夹的内容制作成hsclient_1.0.0_arm64.deb安装包。制作时间取决于hsclient文件夹的大小。
+所以，主要工作量在于hsclient文件夹的准备。
+使用tree 命令查看hsclient目录结构如下：
+<img src=/img/hsclient.webp alt>
+可执行文件及相关依赖存放在HSClient目录，这里为了方便展示，我将里面的内容清空了，deb包安装完成后，可执行文件所在目录即为/opt/hbfec/HSClient。
+control 文件内容如下：</p><pre tabindex=0><code>package: hsclient
+version: 1.0.0
+architecture: arm64
+maintainer: hbfec
+description: hsclient application
+</code></pre><p>主要指定包名、版本号、系统架构、维护者、描述，根据实际情况填写即可。
+desktop 文件内容如下：</p><pre tabindex=0><code>[Desktop Entry]
+Name=HSClient
+Name[zh_CN]=会商客户端
+Comment=HSClient application
+Exec=/opt/hbfec/HSClient/HSClient
+Icon=/usr/share/icons/hsclient.png
+Terminal=false
+Type=Application
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;
+StartupNotify=true
+</code></pre><p>主要指定可执行文件相关配置：名称、可执行文件路径、图标、应用类型等。
+程序图标这块没有固定的实现。简单实现，就放在/usr/share/icons目录下即可，推荐48*48大小，desktop中需要写绝对路径Icon=/usr/share/icons/hsclient.png。完整实现的话，icons目录下需要创建hicolor目录、kylin-icon-theme目录以及 kylin-icon-theme-one目录，目录下都需要放置对应大小的图片，desktop中可以直接写文件名Icon=hsclient，可参考已安装的其他应用程序。</p><p>以上内容都准备好以后，就可以通过文章开始处提到的命令制作安装包了。
+需要指出的是，在DEBIAN目录中至少要有control文件，还可以有preinst(preinstallation)、postinst(postinstallation)、prerm(preremove)、postrm(postremove)、copyright(版权）、changlog(修订记录）和conffiles等。
+具体作用如下：</p><pre tabindex=0><code>preinst 文件：解包前运行的脚本。
+postinst 文件：解包完成并将目录文件拷贝到系统后，所需要执行的配置工作。
+prerm 文件：软件卸载前需要执行的脚本。
+postrm 文件：软件卸载后需要执行的脚本。
+control 文件：描述软件包的名称（Package），版本（Version），描述（Description）等，是deb包必须具备的描述性文件，以便于软件的安装管理和索引。
+</code></pre><p>银河麒麟下制作deb安装包涉及的主要内容就是这些，希望可以帮到有需要的人。</p></section><script src=https://sdk.jinrishici.com/v2/browser/jinrishici.js></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5543110969323200" crossorigin=anonymous></script><div id=daily-poem class=daily-poem-container><div class=poem-content><div id=poem_sentence class=poem-text></div><div id=poem_info class=poem-author></div></div></div><script type=text/javascript>jinrishici.load(function(e){var t=document.querySelector("#poem_sentence"),n=document.querySelector("#poem_info");t.innerHTML=e.data.content,n.innerHTML="——"+e.data.origin.dynasty+"·"+e.data.origin.author+"《"+e.data.origin.title+"》"})</script><style>.daily-poem-container{margin:2em 0;padding:1em;border:1px solid #eee;border-radius:8px;background-color:#f4f4f4}.poem-title{font-size:1.2em;margin-bottom:.5em;color:#333}.poem-author{color:#666;font-style:italic}.poem-text{line-height:1.6;color:#444}</style><footer class="mt-12 flex flex-wrap"><a class="mb-1.5 ltr:mr-1.5 rtl:ml-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] dark:bg-white/[8%] dark:hover:bg-white/[12%]" href=https://openwit.net/tags/%E9%93%B6%E6%B2%B3%E9%BA%92%E9%BA%9F>银河麒麟</a></footer><nav class="mt-24 flex overflow-hidden rounded-xl bg-black/[3%] text-lg !leading-[1.2] *:flex *:w-1/2 *:items-center *:p-5 *:font-medium *:no-underline dark:bg-white/[8%] [&>*:hover]:bg-black/[2%] dark:[&>*:hover]:bg-white/[3%]"><a class="ltr:pr-3 rtl:pl-3" href=https://openwit.net/posts/czsc/><span class="ltr:mr-1.5 rtl:ml-1.5">←</span><span>缠中说禅笔记</span></a>
+<a class="ltr:ml-auto rtl:mr-auto justify-end pl-3" href=https://openwit.net/posts/webrtc/><span>实现Android WebRTC支持H265</span><span class="ltr:ml-1.5 rtl:mr-1.5">→</span></a></nav><div class="giscus mt-24"></div><script src=https://giscus.app/client.js data-repo=ilei131/ilei131.github.io data-repo-id="MDEwOlJlcG9zaXRvcnk3Nzg4ODE4MA==" data-category=Announcements data-category-id=DIC_kwDOBKR6tM4Clmt_ data-mapping=pathname data-strict=1 data-reactions-enabled=0 data-emit-metadata=0 data-input-position=top data-theme=preferred_color_scheme data-lang=zh-CN data-loading=lazy crossorigin=anonymous async></script></article></main><footer class="mx-auto flex h-[4.5rem] max-w-[--w] items-center px-8 text-xs uppercase tracking-wider opacity-60"><div class=mr-auto>&copy; 2026
+<a class=link href=https://openwit.net/>Openwit</a></div><a class="link mx-6" href=https://gohugo.io/ rel=noopener target=_blank>powered by hugo️️</a>️
+<a class=link href=https://github.com/nanxiaobei/hugo-paper rel=noopener target=_blank>paper</a></footer></body></html>

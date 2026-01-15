@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IPhone on Openwit</title><link>https://openwit.net/tags/iphone/</link><description>Recent content in IPhone on Openwit</description><generator>Hugo</generator><language>cn</language><lastBuildDate>Sat, 19 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://openwit.net/tags/iphone/index.xml" rel="self" type="application/rss+xml"/><item><title>Mac设备问题及解决方法记录</title><link>https://openwit.net/posts/deviceproblem/</link><pubDate>Sat, 19 Nov 2022 00:00:00 +0000</pubDate><guid>https://openwit.net/posts/deviceproblem/</guid><description>&lt;h2 id="macos-wifi连接后显示叹号"&gt;MacOS Wifi连接后显示叹号&lt;/h2&gt;
+&lt;h3 id="现象"&gt;现象：&lt;/h3&gt;
+&lt;p&gt;连接多个 wifi 后，系统右上角 wifi 标识均显示叹号。&lt;/p&gt;
+&lt;h3 id="解决方法"&gt;解决方法：&lt;/h3&gt;
+&lt;p&gt;进入 /Library/Preferences/SystemConfiguration 目录，将所有文件删除，重启系统，重新连接 wifi。&lt;/p&gt;
+&lt;h2 id="ios设备连接mac电脑后频繁弹窗是否信任"&gt;iOS设备连接Mac电脑后频繁弹窗（是否信任）&lt;/h2&gt;
+&lt;h3 id="现象-1"&gt;现象：&lt;/h3&gt;
+&lt;p&gt;将 iPad 或者 iPhone 连接Mac电脑后，设备频繁弹窗提示是否信任该电脑，无法点击信任或者不信任。&lt;/p&gt;
+&lt;h3 id="解决方法-1"&gt;解决方法：&lt;/h3&gt;
+&lt;p&gt;打开终端，输入命令：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;sudo killall -STOP -c usbd
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后输入电脑开机密码，再次连接设备与电脑，设备再次弹窗后点击信任即可。&lt;/p&gt;</description></item></channel></rss>
