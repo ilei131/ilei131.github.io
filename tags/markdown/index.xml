@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Markdown on Openwit</title><link>https://openwit.net/tags/markdown/</link><description>Recent content in Markdown on Openwit</description><generator>Hugo</generator><language>cn</language><lastBuildDate>Thu, 10 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://openwit.net/tags/markdown/index.xml" rel="self" type="application/rss+xml"/><item><title>Markdown 新手指南</title><link>https://openwit.net/posts/markdown/</link><pubDate>Thu, 10 Nov 2022 00:00:00 +0000</pubDate><guid>https://openwit.net/posts/markdown/</guid><description>&lt;h2 id="标题"&gt;标题&lt;/h2&gt;
+&lt;p&gt;这是最为常用的格式，只需要在文本前面加上 # 即可，同理、你还可以增加二级标题、三级标题、四级标题、五级标题和六级标题，总共六级，只需要增加 # 即可，标题字号相应降低。例如：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;# 一级标题
+## 二级标题
+### 三级标题
+#### 四级标题
+##### 五级标题
+###### 六级标题 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;注：# 和「标题」之间建议保留一个字符的空格，这是最标准的 Markdown 写法。
+效果如下：&lt;/p&gt;
+&lt;h1 id="一级标题"&gt;一级标题&lt;/h1&gt;
+&lt;h2 id="二级标题"&gt;二级标题&lt;/h2&gt;
+&lt;h3 id="三级标题"&gt;三级标题&lt;/h3&gt;
+&lt;h4 id="四级标题"&gt;四级标题&lt;/h4&gt;
+&lt;h5 id="五级标题"&gt;五级标题&lt;/h5&gt;
+&lt;h6 id="六级标题"&gt;六级标题&lt;/h6&gt;
+&lt;h2 id="列表"&gt;列表&lt;/h2&gt;
+&lt;p&gt;列表格式也很常用，只需要在文字前面加上 - 就可以了，例如：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;- 文本1
+- 文本2
+- 文本3
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果你希望有序列表，
+也可以在文字前面加上 1. 2. 3. 就可以了，例如：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;1. 文本1
+2. 文本2
+3. 文本3
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;注：- 和 1. 与后面文本之间要保留一个字符的空格。
+效果如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;文本 1&lt;/li&gt;
+&lt;li&gt;文本 2&lt;/li&gt;
+&lt;li&gt;文本 3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;文本1&lt;/li&gt;
+&lt;li&gt;文本2&lt;/li&gt;
+&lt;li&gt;文本3&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="链接和图片"&gt;链接和图片&lt;/h2&gt;
+&lt;p&gt;在 Markdown 中插入链接，你只需要使用 &lt;code&gt;[显示文本](链接地址)&lt;/code&gt; 这样的语法即可，例如：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;[菜鸟教程](https://www.runoob.com/)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在 Markdown 中插入图片，你只需要使用 &lt;code&gt;![显示文本](图片链接地址)&lt;/code&gt; 这样的语法即可，例如：&lt;/p&gt;</description></item></channel></rss>
