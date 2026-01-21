@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>H265 on Openwit</title><link>https://openwit.net/tags/h265/</link><description>Recent content in H265 on Openwit</description><generator>Hugo</generator><language>cn</language><lastBuildDate>Sun, 08 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://openwit.net/tags/h265/index.xml" rel="self" type="application/rss+xml"/><item><title>实现Android WebRTC支持H265</title><link>https://openwit.net/posts/webrtc/</link><pubDate>Sun, 08 Jan 2023 00:00:00 +0000</pubDate><guid>https://openwit.net/posts/webrtc/</guid><description>&lt;p&gt;谷歌的WebRTC，默认不支持H265，好在网上有开源的实现，但是想要传输层支持H265需要重新编译生成libjingle_peerconnection_so.so。本篇主要记录一下编译过程。&lt;a href="https://github.com/open-webrtc-toolkit/owt-client-native"&gt;项目github地址:https://github.com/open-webrtc-toolkit/owt-client-native&lt;/a&gt;
+自己通过虚拟机安装Ubuntu18.04并翻墙，无论如何都无法编译成功，无奈，购买了1个月香港云主机，编译成功！
+假设当前路径为/home/zhanggf&lt;/p&gt;
+&lt;h2 id="1-下载代码"&gt;1. 下载代码&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;git clone https://github.com/open-webrtc-toolkit/owt-client-native.git
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;下载完成后，将目录重命名为 src&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;mv owt-client-native src
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="2-下载-depot_tools"&gt;2. 下载 depot_tools&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;下载完成后，设置 PATH&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;export PATH=$PATH:/home/zhanggf/depot_tools
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="3-创建gclient"&gt;3. 创建.gclient&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;vi .gclient
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;将以下内容复制到文件中并保存：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;solutions = [
+ {
+ &amp;#34;managed&amp;#34;: False,
+ &amp;#34;name&amp;#34;: &amp;#34;src&amp;#34;,
+ &amp;#34;url&amp;#34;: &amp;#34;https://github.com/open-webrtc-toolkit/owt-client-native.git&amp;#34;,
+ &amp;#34;custom_deps&amp;#34;: {},
+ &amp;#34;deps_file&amp;#34;: &amp;#34;DEPS&amp;#34;,
+ &amp;#34;safesync_url&amp;#34;: &amp;#34;&amp;#34;,
+ },
+]
+target_os = [&amp;#34;android&amp;#34;]
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="4gclient-sync"&gt;4.gclient sync&lt;/h2&gt;
+&lt;p&gt;进入src目录，执行gclient sync。&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;cd src
+gclient sync
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;后面就是漫长的等待，视网速情况，需要1-n个小时吧。&lt;/p&gt;
+&lt;h2 id="5-编译"&gt;5. 编译&lt;/h2&gt;
+&lt;p&gt;进入/src/scripts 目录，执行python build_android.py开始编译。&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;cd /src/scripts
+python build_android.py
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;全部编译完成大概1小时左右吧。&lt;/p&gt;
+&lt;h2 id="6out"&gt;6.out&lt;/h2&gt;
+&lt;p&gt;最终生成的目标文件在src/out路径下，包括libwebrtc.jar和对应版本的libjingle_peerconnection_so.so。替换当前项目中的相关文件，恭喜，你的WebRTC项目已经支持H265硬编码了。&lt;/p&gt;
+&lt;p&gt;最后，编译成果放在了github，有需要的自取。&lt;a href="https://github.com/ilei131/android_webrtc_h265"&gt;github链接&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>
