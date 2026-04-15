@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>银河麒麟 on Openwit</title><link>https://openwit.net/tags/%E9%93%B6%E6%B2%B3%E9%BA%92%E9%BA%9F/</link><description>Recent content in 银河麒麟 on Openwit</description><generator>Hugo</generator><language>cn</language><lastBuildDate>Sun, 19 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://openwit.net/tags/%E9%93%B6%E6%B2%B3%E9%BA%92%E9%BA%9F/index.xml" rel="self" type="application/rss+xml"/><item><title>银河麒麟制作deb安装包</title><link>https://openwit.net/posts/kylindeb/</link><pubDate>Sun, 19 Feb 2023 00:00:00 +0000</pubDate><guid>https://openwit.net/posts/kylindeb/</guid><description>&lt;p&gt;本篇记录一下银河麒麟制作deb安装包的主要步骤。
+制作安装包的命令很简单，以我近期的项目为例：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;dpkg -b hsclient/ hsclient_1.0.0_arm64.deb
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;以上命令会将hsclient文件夹的内容制作成hsclient_1.0.0_arm64.deb安装包。制作时间取决于hsclient文件夹的大小。
+所以，主要工作量在于hsclient文件夹的准备。
+使用tree 命令查看hsclient目录结构如下：
+&lt;img src="https://openwit.net/img/hsclient.webp" alt=""&gt;
+可执行文件及相关依赖存放在HSClient目录，这里为了方便展示，我将里面的内容清空了，deb包安装完成后，可执行文件所在目录即为/opt/hbfec/HSClient。
+control 文件内容如下：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;package: hsclient
+version: 1.0.0
+architecture: arm64
+maintainer: hbfec
+description: hsclient application
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;主要指定包名、版本号、系统架构、维护者、描述，根据实际情况填写即可。
+desktop 文件内容如下：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;[Desktop Entry]
+Name=HSClient
+Name[zh_CN]=会商客户端
+Comment=HSClient application
+Exec=/opt/hbfec/HSClient/HSClient
+Icon=/usr/share/icons/hsclient.png
+Terminal=false
+Type=Application
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;
+StartupNotify=true
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;主要指定可执行文件相关配置：名称、可执行文件路径、图标、应用类型等。
+程序图标这块没有固定的实现。简单实现，就放在/usr/share/icons目录下即可，推荐48*48大小，desktop中需要写绝对路径Icon=/usr/share/icons/hsclient.png。完整实现的话，icons目录下需要创建hicolor目录、kylin-icon-theme目录以及 kylin-icon-theme-one目录，目录下都需要放置对应大小的图片，desktop中可以直接写文件名Icon=hsclient，可参考已安装的其他应用程序。&lt;/p&gt;
+&lt;p&gt;以上内容都准备好以后，就可以通过文章开始处提到的命令制作安装包了。
+需要指出的是，在DEBIAN目录中至少要有control文件，还可以有preinst(preinstallation)、postinst(postinstallation)、prerm(preremove)、postrm(postremove)、copyright(版权）、changlog(修订记录）和conffiles等。
+具体作用如下：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;preinst 文件：解包前运行的脚本。
+postinst 文件：解包完成并将目录文件拷贝到系统后，所需要执行的配置工作。
+prerm 文件：软件卸载前需要执行的脚本。
+postrm 文件：软件卸载后需要执行的脚本。
+control 文件：描述软件包的名称（Package），版本（Version），描述（Description）等，是deb包必须具备的描述性文件，以便于软件的安装管理和索引。
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;银河麒麟下制作deb安装包涉及的主要内容就是这些，希望可以帮到有需要的人。&lt;/p&gt;</description></item></channel></rss>
