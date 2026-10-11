@@ -1,0 +1,99 @@
+/* 修复highlight.js背景色与主题不一致的问题 */
+
+/* 确保highlight.js代码块使用与主题相同的背景色 */
+.prose pre.hljs {
+  background-color: var(--tw-prose-pre-bg) !important;
+}
+
+/* 确保highlight.js代码块中的代码颜色与主题一致 */
+.prose pre.hljs code {
+  color: var(--tw-prose-pre-code) !important;
+  background-color: transparent !important;
+}
+
+/* 确保文章中的highlight.js代码块也使用相同的背景色 */
+article .highlight > div {
+  background-color: var(--tw-prose-pre-bg) !important;
+}
+
+/* 确保文章中的highlight.js代码块中的代码颜色与主题一致 */
+article .highlight > div code {
+  color: var(--tw-prose-pre-code) !important;
+  background-color: transparent !important;
+}
+
+/* 确保highlight.js的行号颜色与主题一致 */
+.prose pre.hljs .hljs-ln-numbers {
+  color: var(--tw-prose-pre-code) !important;
+  opacity: 0.7;
+}
+
+/* 确保highlight.js的代码高亮颜色在深色背景下仍然清晰可见 */
+.prose pre.hljs .hljs-keyword,
+.prose pre.hljs .hljs-selector-tag,
+.prose pre.hljs .hljs-literal,
+.prose pre.hljs .hljs-section,
+.prose pre.hljs .hljs-link {
+  color: #569cd6 !important;
+}
+
+.prose pre.hljs .hljs-string,
+.prose pre.hljs .hljs-title,
+.prose pre.hljs .hljs-name,
+.prose pre.hljs .hljs-type,
+.prose pre.hljs .hljs-attribute,
+.prose pre.hljs .hljs-symbol,
+.prose pre.hljs .hljs-bullet,
+.prose pre.hljs .hljs-built_in,
+.prose pre.hljs .hljs-addition,
+.prose pre.hljs .hljs-variable,
+.prose pre.hljs .hljs-template-tag,
+.prose pre.hljs .hljs-template-variable {
+  color: #ce9178 !important;
+}
+
+.prose pre.hljs .hljs-comment,
+.prose pre.hljs .hljs-quote,
+.prose pre.hljs .hljs-deletion,
+.prose pre.hljs .hljs-meta {
+  color: #6a9955 !important;
+}
+
+.prose pre.hljs .hljs-number,
+.prose pre.hljs .hljs-regexp,
+.prose pre.hljs .hljs-literal {
+  color: #b5cea8 !important;
+}
+
+.prose pre.hljs .hljs-function,
+.prose pre.hljs .hljs-title,
+.prose pre.hljs .hljs-params {
+  color: #dcdcaa !important;
+}
+
+.prose pre.hljs .hljs-class,
+.prose pre.hljs .hljs-title.class_ {
+  color: #4ec9b0 !important;
+}
+
+.prose pre.hljs .hljs-tag {
+  color: #d4d4d4 !important;
+}
+
+.prose pre.hljs .hljs-attr {
+  color: #9cdcfe !important;
+}
+
+.prose pre.hljs .hljs-punctuation {
+  color: #d4d4d4 !important;
+}
+
+/* 确保在亮色模式下，代码块中的代码背景色也是透明的 */
+:not(.dark) .prose pre.hljs code {
+  background-color: transparent !important;
+}
+
+/* 确保在亮色模式下，文章中的代码块中的代码背景色也是透明的 */
+:not(.dark) article .highlight > div code {
+  background-color: transparent !important;
+}
