@@ -1,0 +1,80 @@
+<!doctype html><html lang=zh-CN data-theme=light><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><script>(function(){document.documentElement.classList.add("js");try{var t=localStorage.getItem("theme"),e=window.matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.setAttribute("data-theme",t||(e?"dark":"light"))}catch{document.documentElement.setAttribute("data-theme","light")}window.setTimeout(function(){window.__portfolioReady||document.documentElement.classList.remove("js")},3e3)})()</script><title>Markdown 新手指南 · Openwit</title><meta name=description content="Markdown"><meta name=author content="openwit"><meta name=theme-color content="#faf8f1" media="(prefers-color-scheme: light)"><meta name=theme-color content="#11100e" media="(prefers-color-scheme: dark)"><link rel=canonical href=https://openwit.net/posts/markdown/><link rel=stylesheet href=/css/main.min.3dcede43239a7962db1f1e24b4b27d986fa2452ab5940e5a368a4b86f0db2efc.css integrity="sha256-Pc7eQyOaeWLbHx4ktLJ9mG+iRSq1lA5aNopLhvDbLvw="><link rel=icon href=/favicon.ico><link rel=apple-touch-icon href=/apple-touch-icon.png><link rel=preload as=image href=https://cdn.jsdelivr.net/gh/ilei131/openwitpics/avatar/avatar.jpg><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js></script><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll("pre code").forEach(function(e){window.hljs&&window.hljs.highlightElement(e)})})</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5543110969323200" crossorigin=anonymous></script><meta name=generator content="Hugo 0.168.0"><meta property="og:url" content="https://openwit.net/posts/markdown/"><meta property="og:site_name" content="Openwit"><meta property="og:title" content="Markdown 新手指南"><meta property="og:description" content="Markdown"><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-11-10T00:00:00+00:00"><meta property="article:modified_time" content="2022-11-10T00:00:00+00:00"><meta property="article:tag" content="Markdown"><meta name=twitter:card content="summary"><meta name=twitter:title content="Markdown 新手指南"><meta name=twitter:description content="Markdown"></head><body><a class=skip-link href=#main>跳到主要内容</a><header class=site-header><div class="container header-inner"><a class=brand href=/ aria-label="Openwit 首页"><span class=brand-mark>I</span>
+<span class=brand-text>Openwit</span>
+</a><button class=nav-toggle type=button aria-label=打开菜单 aria-expanded=false aria-controls=site-nav>
+<span class=nav-toggle-open><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span>
+<span class=nav-toggle-close><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></span></button><nav id=site-nav class=site-nav aria-label=主导航><a href=https://chinamystic.openwit.net target=_blank rel="noopener noreferrer">ChinaMystic<span class=ext aria-hidden=true>↗</span>
+</a><a href=https://image.openwit.net target=_blank rel="noopener noreferrer">ImageStudio<span class=ext aria-hidden=true>↗</span>
+</a><a href=https://articlebeautifier.openwit.net/ target=_blank rel="noopener noreferrer">ArticleBeautifier<span class=ext aria-hidden=true>↗</span>
+</a><a href=https://passworddisk.openwit.net/ target=_blank rel="noopener noreferrer">PasswordDisk<span class=ext aria-hidden=true>↗</span>
+</a><a href=https://upshare.fun target=_blank rel="noopener noreferrer">Upshare<span class=ext aria-hidden=true>↗</span>
+</a><a href=https://onesmallgoal.vercel.app/ target=_blank rel="noopener noreferrer">Millionare<span class=ext aria-hidden=true>↗</span>
+</a><a class=active href=/posts/>博客</a>
+<a href=/about/>关于</a></nav><div class=header-tools><a class=icon-btn href=/search/ aria-label=搜索 title=搜索><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+</a><button class="icon-btn theme-toggle" type=button aria-label=切换深浅色 title=切换深浅色>
+<span class="theme-icon theme-icon-moon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5a8.5 8.5.0 01-11-11 8.5 8.5.0 1011 11z"/></svg></span>
+<span class="theme-icon theme-icon-sun"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg></span></button></div></div></header><main id=main class=page-main><article class=article><header class=article-head data-reveal><div class=article-meta><time datetime=2022-11-10>2022年11月10日</time>
+<span>·</span>
+<span>2 分钟阅读</span>
+<span>·</span><span>openwit</span></div><h1>Markdown 新手指南</h1><p class=article-desc>Markdown</p><div class=tag-list><a href=/tags/markdown/>#Markdown</a></div></header><div class=article-body data-reveal><h2 id=标题>标题</h2><p>这是最为常用的格式，只需要在文本前面加上 # 即可，同理、你还可以增加二级标题、三级标题、四级标题、五级标题和六级标题，总共六级，只需要增加 # 即可，标题字号相应降低。例如：</p><pre tabindex=0><code># 一级标题
+## 二级标题
+### 三级标题
+#### 四级标题
+##### 五级标题
+###### 六级标题 
+</code></pre><p>注：# 和「标题」之间建议保留一个字符的空格，这是最标准的 Markdown 写法。
+效果如下：</p><h1 id=一级标题>一级标题</h1><h2 id=二级标题>二级标题</h2><h3 id=三级标题>三级标题</h3><h4 id=四级标题>四级标题</h4><h5 id=五级标题>五级标题</h5><h6 id=六级标题>六级标题</h6><h2 id=列表>列表</h2><p>列表格式也很常用，只需要在文字前面加上 - 就可以了，例如：</p><pre tabindex=0><code>- 文本1
+- 文本2
+- 文本3
+</code></pre><p>如果你希望有序列表，
+也可以在文字前面加上 1. 2. 3. 就可以了，例如：</p><pre tabindex=0><code>1. 文本1
+2. 文本2
+3. 文本3
+</code></pre><p>注：- 和 1. 与后面文本之间要保留一个字符的空格。
+效果如下：</p><ul><li>文本 1</li><li>文本 2</li><li>文本 3</li></ul><ol><li>文本1</li><li>文本2</li><li>文本3</li></ol><h2 id=链接和图片>链接和图片</h2><p>在 Markdown 中插入链接，你只需要使用 <code>[显示文本](链接地址)</code> 这样的语法即可，例如：</p><pre tabindex=0><code>[菜鸟教程](https://www.runoob.com/)
+</code></pre><p>在 Markdown 中插入图片，你只需要使用 <code>![显示文本](图片链接地址)</code> 这样的语法即可，例如：</p><pre tabindex=0><code>![RUNOOB 图标](https://static.jyshare.com/images/runoob-logo.png)
+</code></pre><p>注：插入图片的语法和链接的语法很像，只是前面多了一个！。</p><p>效果如下：
+<a href=https://www.runoob.com/>菜鸟教程</a></p><p><img src=https://static.jyshare.com/images/runoob-logo.png alt="RUNOOB 图标"></p><h2 id=引用>引用</h2><p>当需要引用他人的文字时，在 Markdown 中，你只需要在你希望引用的文字前面加上 > 就好了，例如：</p><pre tabindex=0><code>&gt; 我有明珠一颗，久被尘劳关锁。
+而今尘尽光生，照破青山万朵。
+</code></pre><p>注：> 和文本之间要保留一个字符的空格。
+效果如下：</p><blockquote><p>我有明珠一颗，久被尘劳关锁。
+而今尘尽光生，照破青山万朵。</p></blockquote><h2 id=粗体和斜体>粗体和斜体</h2><p>Markdown 的粗体和斜体也非常简单，用 ** 包含一段文本就是粗体的语法，用 * 包含一段文本就是斜体的语法。例如：</p><pre tabindex=0><code>*我有明珠一颗*，**久被尘劳关锁**。
+而今尘尽光生，照破青山万朵。
+</code></pre><p>效果如下：</p><p><em>我有明珠一颗</em>，<strong>久被尘劳关锁</strong>。
+而今尘尽光生，照破青山万朵。</p><h2 id=代码引用>代码引用</h2><p>如果引用的语句只有一行，可以用 ` 将语句包起来。
+如果引用的语句为多行，可以将 ``` 置于这段代码的首行和末行。例如：</p><pre tabindex=0><code>`print(&#39;Hello world!&#39;)`
+</code></pre><pre tabindex=0><code>```
+def my_abs(x):
+    if x &gt;= 0:
+        return x
+    else:
+        return -x
+```
+</code></pre><p>效果如下：</p><pre tabindex=0><code>print(&#39;Hello world!&#39;)
+</code></pre><pre tabindex=0><code>def my_abs(x):
+    if x &gt;= 0:
+        return x
+    else:
+        return -x
+</code></pre><h2 id=表格>表格</h2><p>参考代码：</p><pre tabindex=0><code>| Name          | Age           | Sex   |
+| ------------- |-------------- | ----- |
+| Zhangsan      | 10            |   male|
+| Lisi          | 20            |   male|
+| Wangwu        | 30            | female|
+</code></pre><p>效果如下：</p><table><thead><tr><th>Name</th><th>Age</th><th>Sex</th></tr></thead><tbody><tr><td>Zhangsan</td><td>10</td><td>male</td></tr><tr><td>Lisi</td><td>20</td><td>male</td></tr><tr><td>Wangwu</td><td>30</td><td>female</td></tr></tbody></table><p>我们可以设置表格的对齐方式：</p><ul><li>-: 设置内容和标题栏居右对齐。</li><li>:- 设置内容和标题栏居左对齐。</li><li>:-: 设置内容和标题栏居中对齐。</li></ul><p>例如：</p><pre tabindex=0><code>| 左对齐 | 右对齐 | 居中对齐 |
+| :-----| ----: | :----: |
+| 11111 | 11111 | 11111  |
+| 11    | 11    | 11     |
+</code></pre><p>效果如下：</p><table><thead><tr><th style=text-align:left>左对齐</th><th style=text-align:right>右对齐</th><th style=text-align:center>居中对齐</th></tr></thead><tbody><tr><td style=text-align:left>11111</td><td style=text-align:right>11111</td><td style=text-align:center>11111</td></tr><tr><td style=text-align:left>11</td><td style=text-align:right>11</td><td style=text-align:center>11</td></tr></tbody></table><h2 id=结语>结语</h2><p>以上几种格式是比较常用的格式，如想了解和学习更多，可以参考菜鸟教程上的<a href=https://www.runoob.com/markdown/md-tutorial.html>Markdown教程</a></p></div><div class=daily-poem aria-label=今日诗句><p class=daily-poem-label>今日诗句</p><p id=poem_sentence class=daily-poem-text>正在加载…</p><p id=poem_info class=daily-poem-meta></p></div><script src=https://sdk.jinrishici.com/v2/browser/jinrishici.js></script><script>(function(){if(!window.jinrishici)return;window.jinrishici.load(function(e){var t=document.getElementById("poem_sentence"),n=document.getElementById("poem_info");if(!t||!n)return;t.textContent=e.data.content,n.textContent="——"+e.data.origin.dynasty+"·"+e.data.origin.author+"《"+e.data.origin.title+"》"})})()</script><footer class=article-footer><a class=back-link href=/posts/>← 全部文章</a><div class=tag-list><a href=/tags/markdown/>#Markdown</a></div></footer><nav class=post-nav aria-label=文章导航><a class=post-nav-item href=/posts/deviceproblem/><span>← 上一篇</span>
+<strong>Mac设备问题及解决方法记录</strong>
+</a><a class="post-nav-item post-nav-next" href=/posts/privacypolicy/><span>下一篇 →</span>
+<strong>Privacy Policy</strong></a></nav><section class=comments id=comments><h2>评论</h2><div class=giscus></div><script src=https://giscus.app/client.js data-repo=ilei131/ilei131.github.io data-repo-id="MDEwOlJlcG9zaXRvcnk3Nzg4ODE4MA==" data-category=Announcements data-category-id=DIC_kwDOBKR6tM4Clmt_ data-mapping=pathname data-strict=1 data-reactions-enabled=0 data-emit-metadata=0 data-input-position=top data-theme=preferred_color_scheme data-lang=zh-CN data-loading=lazy crossorigin=anonymous async></script></section></article></main><footer class=site-footer><div class=container><div class=footer-inner><div class=footer-brand><a class=footer-logo href=/>Openwit</a><p>人生很短，每一秒都是岁月。</p><div class=footer-social><a href=https://github.com/ilei131 target=_blank rel="noopener noreferrer"><svg class="icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58.0.0 3.58.0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38.0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95.0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12.0.0.67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15.0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48.0 1.07-.01 1.93-.01 2.2.0.21.15.46.55.38A8.01 8.01.0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+</a><a href=/index.xml><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5a14 14 0 0114 14M5 11a8 8 0 018 8"/><circle cx="5.5" cy="18.5" r="1.5" fill="currentColor" stroke="none"/></svg> RSS</a></div></div><div class=footer-nav><div><h3>作品</h3><div class=footer-links><a href=https://chinamystic.openwit.net target=_blank rel="noopener noreferrer">ChinaMystic</a>
+<a href=https://image.openwit.net target=_blank rel="noopener noreferrer">ImageStudio</a>
+<a href=https://articlebeautifier.openwit.net/ target=_blank rel="noopener noreferrer">ArticleBeautifier</a>
+<a href=https://passworddisk.openwit.net/ target=_blank rel="noopener noreferrer">PasswordDisk</a>
+<a href=https://upshare.fun target=_blank rel="noopener noreferrer">Upshare</a>
+<a href=https://onesmallgoal.vercel.app/ target=_blank rel="noopener noreferrer">Millionare</a></div></div><div><h3>站点</h3><div class=footer-links><a href=/posts/>博客</a>
+<a href=/archives/>归档</a>
+<a href=/about/>关于</a>
+<a href=/search/>搜索</a></div></div></div></div><div class=footer-bottom><span>© 2026 Openwit</span>
+<span>Built with Hugo · Portfolio theme</span></div></div></footer><script src=/js/main.min.eb32ebb298a16aa4205edbe61b659e8e4015255210bc6ab38b1f5a3dae16f3dd.js integrity="sha256-6zLrspihaqQgXtvmG2WejkAVJVIQvGqzix9aPa4W890=" defer></script></body></html>
